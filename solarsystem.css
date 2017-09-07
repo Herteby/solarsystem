@@ -1,0 +1,640 @@
+@keyframes orbit{
+    0%  {transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+body{
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    font-family:'Unica One','Arial','sans-serif';
+    color:#fff;
+    background-color:#000;
+    background-image:url(space.png);
+    background-attachment: fixed;
+    text-transform:uppercase;
+    overflow:hidden;
+    cursor:default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select:none;
+}
+#title{
+    position:relative;
+    z-index:100;
+    width:1000px;
+    margin:10px auto -100px auto;
+    text-align:center;
+    transition:all 0.4s;
+}
+h1, h2, h3{
+    line-height:130%;
+}
+h1{
+    font-size:36px;
+    letter-spacing:5px;
+    text-decoration: underline;
+}
+h2{
+    font-size:18px;
+    letter-spacing:3px;
+}
+h3{
+    letter-spacing:2px;
+}
+#solarsystem{
+    position:absolute;
+    top:50%;
+    left:50%;
+    height:1000px;
+    width:1000px;
+    margin-left:-500px;
+    margin-top:-500px;
+    background:radial-gradient(rgba(68,51,17,0.8) 0%,rgba(0,0,0,0) 50%);
+    transition:height 0.4s, width 0.4s, margin 0.4s
+;}
+.relative #solarsystem{
+    height:2000px;
+    width:2000px;
+    margin-left:-1000px;
+    margin-top:-1000px;
+}
+.star, .planet, .moon{
+    position:absolute;
+    top:0%;
+    left:50%;
+    border-radius:999px;
+    transform:translate(-50%,-50%);
+    transition:all 0.4s;
+}
+.planet{
+    background:radial-gradient(rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%);
+    background-position:0px px;
+}
+.moon{
+    background:radial-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
+}
+.orbit{
+    position:absolute;
+    top:50%;
+    left:50%;
+    border-radius:9999px;
+    border:1px solid rgba(255,255,255,0.1);
+    box-sizing:border-box;
+    animation:orbit 10s linear infinite;
+    transition:all 0.4s;
+}
+.noorbits .orbit{
+    border-color:transparent;
+}
+.orbit.fake{
+    height:30px;
+    width:30px;
+    margin-left:-15px;
+    margin-top:-15px;
+    opacity:0;
+}
+.description{
+    display:inline-block;
+    position:fixed;
+    font-size:14px;
+    z-index:100;
+    pointer-events:none;
+}
+.description h4{
+    font-size:20px;
+    margin-bottom:2px;
+    border-bottom:1px solid #fff;
+    padding-left:18px;
+    white-space: nowrap;
+    text-align:right;
+}
+.description li{
+    margin-bottom:2px;
+    padding-left:10px;
+}
+.description .moon{
+    height:8px;
+    width:8px;
+    top:4px;
+    left:0px;
+    margin-left:12px;
+    position:relative;
+    display:inline-block;
+}
+.anchor{
+    height:1px;
+    width:1px;
+    position:absolute;
+    top:50%;
+    left:50%;
+}
+#sol{
+    top:50%;
+    width:40px;
+    height:40px;
+    background-color:#ffe;
+    box-shadow:0px 0px 20px #ff0;
+    z-index:5;
+}
+.relative .planet .moon, .relative .planet .orbit{
+    display:none;
+}
+.relative .planet .fake.orbit{
+    display:block;
+}
+.relative #sol{
+    width:12px;
+    height:12px;
+}
+
+.relativesun #sol{
+    width:1090px;
+    height:1090px;
+    box-shadow:0px 0px 50px #ff0;
+}
+.relativesun #solarsystem{
+    height:6000px;
+    width:6000px;
+    margin-left:-3000px;
+    margin-top:-3000px;
+}
+.relativesun, .relativesun .description, .relativesun #title{
+    text-shadow:1px 1px 0px #000;
+}
+.relativesun .zoomborder, .relativesun .ui-slider-handle, .relativesun .toggle{
+    box-shadow:1px 1px 0px #000;
+}
+#mercuryorbit{ /* 0.24 years */
+    animation-duration:2.4s;
+    animation-delay: -1.4s;
+    margin-left:-50px;
+    margin-top:-50px;
+    width:100px;
+    height:100px;
+    z-index:80;
+}
+.relative #mercuryorbit{
+    width:40px;
+    height:40px;
+    margin-left:-20px;
+    margin-top:-20px;
+}
+#mercury{
+    height:5px;
+    width:5px;
+    box-shadow:inset 0px 2px 2px rgba(0,0,0,0.9);
+    background-color:#aaa;
+}
+#venusorbit{ /* 0.61 years */
+    animation-duration:6.1s;
+    animation-delay: -1.5s;
+    margin-left:-100px;
+    margin-top:-100px;
+    width:200px;
+    height:200px;
+    z-index:70;
+}
+.relative #venusorbit{
+    width:72px;
+    height:72px;
+    margin-left:-36px;
+    margin-top:-36px;
+}
+#venus{
+    height:10px;
+    width:10px;
+    box-shadow:inset 0px 2.5px 2.5px rgba(0,0,0,0.9);
+    background-color:#fd7;
+}
+#earthorbit{ /* 1 year */
+    animation-duration:10s;
+    animation-delay: -3s;
+    margin-left:-150px;
+    margin-top:-150px;
+    width:300px;
+    height:300px;
+    z-index:60;
+}
+.relative #earthorbit{
+    width:100px;
+    height:100px;
+    margin-left:-50px;
+    margin-top:-50px;
+}
+#earth{
+    height:10px;
+    width:10px;
+    box-shadow:inset 0px 2.5px 2.5px rgba(0,0,0,0.9);
+    background-color:#05f;
+}
+#lunaorbit{ /* 0.075 years */
+    animation-duration:0.75s;
+    width:30px;
+    height:30px;
+    margin-left:-15px;
+    margin-top:-15px;
+}
+#earth:hover #lunaorbit, .slowmoons #lunaorbit{
+    animation-duration:7.5s;
+}
+#luna, .luna{
+    height:5px;
+    width:5px;
+    background-color:#aaa;
+}
+#marsorbit{ /* 1.9 years */
+    animation-duration:19s;
+    animation-delay:-18s;
+    margin-left:-200px;
+    margin-top:-200px;
+    width:400px;
+    height:400px;
+    z-index:50;
+}
+.relative #marsorbit{
+    width:152px;
+    height:152px;
+    margin-left:-76px;
+    margin-top:-76px;
+}
+#mars{
+    height:8px;
+    width:8px;
+    box-shadow:inset 0px 2px 2px rgba(0,0,0,0.9);
+    background-color:#f42;
+}
+.relative #mars{ /* 0.53 x Earth */
+    height:5px;
+    width:5px;
+}
+#jupiterorbit{ /* 11.9 years */
+    animation-duration:119s;
+    animation-delay:-100s;
+    margin-left:-250px;
+    margin-top:-250px;
+    width:500px;
+    height:500px;
+    z-index:40;
+}
+.relative #jupiterorbit{
+    width:520px;
+    height:520px;
+    margin-left:-260px;
+    margin-top:-260px;
+}
+#jupiter{
+    height:20px;
+    width:20px;
+    background-color:#f74;
+    box-shadow:inset 0px 6px 6px rgba(0,0,0,0.9);
+}
+.relative #jupiter{ /* 11.2 x Earth */
+    box-shadow:inset 0px 28px 28px rgba(0,0,0,0.9);
+    height:112px;
+    width:112px;
+}
+#ioorbit{ /* 0.0047 years */
+    animation-duration:0.04s;
+    width:30px;
+    height:30px;
+    margin-left:-15px;
+    margin-top:-15px;
+}
+#jupiter:hover #ioorbit, .slowmoons #ioorbit{
+    animation-duration:0.4s;
+}
+#io, .io{
+    height:5px;
+    width:5px;
+    background-color:#ff6;
+}
+#europaorbit{ /* 0.0096 years */
+    animation-duration:0.096s;
+    width:40px;
+    height:40px;
+    margin-left:-20px;
+    margin-top:-20px;
+}
+#jupiter:hover #europaorbit, .slowmoons #europaorbit{
+    animation-duration:0.96s;
+}
+#europa, .europa{
+    height:5px;
+    width:5px;
+    background-color:#7af;
+}
+#ganymedeorbit{ /* 0.0196 years */
+    animation-duration:0.19s;
+    width:50px;
+    height:50px;
+    margin-left:-25px;
+    margin-top:-25px;
+}
+#jupiter:hover #ganymedeorbit, .slowmoons #ganymedeorbit{
+    animation-duration:1.9s;
+}
+#ganymede, .ganymede{
+    height:5px;
+    width:5px;
+    background-color:#aaa;
+}
+#callistoorbit{ /* 0.0465445 years */
+    animation-duration:0.46s;
+    width:60px;
+    height:60px;
+    margin-left:-30px;
+    margin-top:-30px;
+}
+#jupiter:hover #callistoorbit, .slowmoons #callistoorbit{
+    animation-duration:4.6s;
+}
+#callisto, .callisto{
+    height:5px;
+    width:5px;
+    background-color:#aaa;
+}
+#saturnorbit{ /* 29.5 years */
+    animation-duration:295s;
+    animation-delay:-170s;
+    margin-left:-300px;
+    margin-top:-300px;
+    width:600px;
+    height:600px;
+    z-index:30;
+}
+.relative #saturnorbit{
+    width:912px;
+    height:912px;
+    margin-left:-456px;
+    margin-top:-456px;
+}
+#saturn{
+    height:20px;
+    width:20px;
+    box-shadow:inset 0px 6px 6px rgba(0,0,0,0.9);
+    background-color:#ff8;
+}
+.relative #saturn{ /* 9.45 x Earth */
+    box-shadow:inset 0px 24px 24px rgba(0,0,0,0.9);
+    height:94px;
+    width:94px;
+}
+#saturnrings{
+    animation:none;
+    width:40px;
+    height:40px;
+    margin-left:-20px;
+    margin-top:-20px;
+    border:8px solid #853;
+    opacity:0.4;
+}
+.relative #saturnrings{
+    width:218px;
+    height:218px;
+    margin-left:-109px;
+    margin-top:-109px;
+    border:57px solid #853;
+    display:block;    
+}
+#titanorbit{ /* 0.044 years */
+    animation-duration:0.44s;
+    width:60px;
+    height:60px;
+    margin-left:-30px;
+    margin-top:-30px;
+}
+#saturn:hover #titanorbit, .slowmoons #titanorbit{
+    animation-duration:4.4s;
+}
+#titan, .titan{
+    height:5px;
+    width:5px;
+    background-color:#ff8;
+}
+#rheaorbit{ /* 0.012 years */
+    animation-duration:0.12s;
+    width:50px;
+    height:50px;
+    margin-left:-25px;
+    margin-top:-25px;
+}
+#saturn:hover #rheaorbit, .slowmoons #rheaorbit{
+    animation-duration:1.2s;
+}
+#rhea, .rhea{
+    height:5px;
+    width:5px;
+    background-color:#aaa;
+}
+#uranusorbit{ /* 84.0 years */
+    animation-duration:840s;
+    animation-delay:-150s;
+    margin-left:-350px;
+    margin-top:-350px;
+    width:700px;
+    height:700px;
+    z-index:20;
+}
+.relative #uranusorbit{
+    width:1916px;
+    height:1916px;
+    margin-left:-958px;
+    margin-top:-958px;
+}
+#uranus{ 
+    height:20px;
+    width:20px;
+    box-shadow:inset 0px 6px 6px rgba(0,0,0,0.9);
+    background-color:#3cf;
+}
+.relative #uranus{ /* 4.01 x Earth */
+    box-shadow:inset 0px 10px 10px rgba(0,0,0,0.9);
+    height:40px;
+    width:40px;
+}
+#titaniaorbit{ /* 0.024 years */
+    animation-duration:0.24s;
+    width:40px;
+    height:40px;
+    margin-left:-20px;
+    margin-top:-20px;
+}
+#uranus:hover #titaniaorbit, .slowmoons #titaniaorbit{
+    animation-duration:2.4s;
+}
+#titania, .titania{
+    height:5px;
+    width:5px;
+    background-color:#aaa;
+}
+#oberonorbit{ /* 0.037 years */
+    animation-duration:0.37s;
+    width:50px;
+    height:50px;
+    margin-left:-25px;
+    margin-top:-25px;
+}
+#uranus:hover #oberonorbit, .slowmoons #oberonorbit{
+    animation-duration:3.7s;
+}
+#oberon, .oberon{
+    height:5px;
+    width:5px;
+    background-color:#aaa;
+}
+#neptuneorbit{ /* 164.8 years */
+    animation-duration:1648s;
+    animation-delay:-500s;
+    margin-left:-400px;
+    margin-top:-400px;
+    width:800px;
+    height:800px;
+    z-index:10;
+}
+.relative #neptuneorbit{
+    width:3600px;
+    height:3600px;
+    margin-left:-1800px;
+    margin-top:-1800px;
+}
+#neptune{
+    height:20px;
+    width:20px;
+    box-shadow:inset 0px 6px 6px rgba(0,0,0,0.9);
+    background-color:#33f;
+}
+.relative #neptune{ /* 3.88 x Earth */
+    box-shadow:inset 0px 10px 10px rgba(0,0,0,0.9);
+    height:39px;
+    width:39px;
+}
+#tritonorbit{ /* 0.0160907 years */
+    animation-duration:0.16s;
+    animation-direction:reverse;
+    width:40px;
+    height:40px;
+    margin-left:-20px;
+    margin-top:-20px;
+}
+#neptune:hover #tritonorbit, .slowmoons #tritonorbit{
+    animation-duration:1.6s;
+}
+#triton, .triton{
+    height:5px;
+    width:5px;
+    background-color:#aaa;
+}
+#credits{
+    position:fixed;
+    z-index:10;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    left:5px;
+    bottom:5px;
+}
+#menu{
+    padding-top:20px;
+    position:fixed;
+    z-index:200;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    width:120px;
+    text-align:center;
+}
+.toggle{
+    margin:10px auto 20px auto;
+    height:30px;
+    width:60px;
+    border:2px solid #fff;
+    overflow:hidden;
+    transition:all 0.2s;
+    cursor:pointer;
+}
+.toggle li{
+    height:30px;
+    width:60px;
+    text-align:center;
+    line-height:30px;
+    transition:all 0.2s;
+}
+.toggle.on{
+    color:#0f0;
+    text-shadow:0px 0px 5px #0f0;
+}
+.toggle:hover{
+    color:#0ff;
+    text-shadow:0px 0px 5px #0ff;
+}
+.toggle.on li:first-child{
+    margin-top:-30px;
+}
+.menugroup{
+    position:relative;
+}
+.explanation{
+    position:absolute;
+    top:0px;
+    left:-230px;
+    width:230px;
+    height:4em;
+    overflow:hidden;
+    text-align:left;
+    opacity:0;
+    transition:all 0.4s;
+    pointer-events: none;
+}
+.explanation li{
+    height:4em;
+    transition:all 0.4s;
+}
+.on ~ .explanation li:first-child{
+    margin-top:-4em;
+}
+.menugroup:hover .explanation{
+    opacity:1;
+}
+.suntoggle{
+    overflow:hidden;
+    transition:all 0.4s;
+}
+.hidden{
+    margin-right:-220px;
+}
+#bottommenu{
+    position:fixed;
+    z-index:100;
+    bottom:20px;
+    left:0px;
+    right:0px;
+    width:400px;
+    margin:0px auto 0px auto;
+    text-align:center;
+    font-size:20px;
+}
+.zoomborder{
+    border:2px solid #fff;
+    padding-right:20px;
+    margin-top:5px;
+}
+#zoom{
+    position:relative;
+    height:20px;
+}
+.ui-slider-handle{
+    position:absolute;
+    display:block;
+    height:16px;
+    width:16px;
+    margin:2px;
+    background-color:#fff;
+    cursor:grab;
+}
+.ui-slider-handle.ui-state-hover, .ui-slider-handle.ui-state-active{
+    background-color:#ccc;
+}
+.grabbing, .grabbing *{
+    cursor: grabbing;
+}

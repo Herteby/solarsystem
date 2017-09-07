@@ -1,0 +1,196 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Simon Herteby">
+	<title>The Solar System</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="solarsystem.css">
+    <link href='https://fonts.googleapis.com/css?family=Unica+One' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="jquery.mousewheel.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body class="slowmoons">
+    <div id="bottommenu">
+        Zoom
+        <div class="zoomborder">
+            <div id="zoom">
+            </div>
+        </div>
+    </div>
+    <div id="menu">
+        Show orbits
+        <ul class="toggle on" id="orbits">
+            <li>Off</li>
+            <li>On</li>
+        </ul>
+        Show labels
+        <ul class="toggle" id="labels">
+            <li>Off</li>
+            <li>On</li>
+        </ul>
+        <div class="menugroup">
+            Slow moons
+            <ul class="toggle on" id="moons">
+                <li>Off</li>
+                <li>On</li>
+            </ul>
+            <ul class="explanation">
+                <li><br>Speeds of moons are accurate to speed of planets</li>
+                <li><br>Moons are slowed down 10 times relative to planets</li>
+            </ul>
+        </div>
+        <div class="menugroup">
+            Relative Sizes
+            <ul class="toggle" id="relative">
+                <li>Off</li>
+                <li>On</li>
+            </ul>
+            <ul class="explanation">
+                <li>Diameters of orbits and sizes of planets are only for presentation<br>Moons are visible</li>
+                <li>Diameters of orbits are accurate relative to each other<br>Sizes of planets are accurate relative to each other</li>
+            </ul>
+        </div>
+        <div class="suntoggle hidden">
+            Accurate Sun
+            <ul class="toggle" id="relativesun">
+                <li>Off</li>
+                <li>On</li>
+            </ul>
+        </div>
+    </div>
+    <div id="title">
+        <h1>The Solar System</h1>
+        <h2>Including the 10 largest moons</h2>
+        <h2>1 Earth Year = 10 seconds</h2>
+    </div>
+    
+    <div class="description" name="mercury">
+        <h4>Mercury</h4>
+    </div>
+    <div class="description" name="venus">
+        <h4>Venus</h4>
+    </div>
+    <div class="description" name="earth">
+        <h4>Earth</h4>
+        <ul>
+            <li><div class="moon luna"></div>The Moon</li>
+        </ul>
+    </div>
+    <div class="description" name="mars">
+        <h4>Mars</h4>
+    </div>
+    <div class="description" name="jupiter">
+        <h4>Jupiter</h4>
+        <ul>
+            <li><div class="moon io"></div>Io</li>
+            <li><div class="moon europa"></div>Europa</li>
+            <li><div class="moon ganymede"></div>Ganymede</li>
+            <li><div class="moon callisto"></div>Callisto</li>
+        </ul>
+    </div>
+    <div class="description" name="saturn">
+        <h4>Saturn</h4>
+        <ul>
+            <li><div class="moon rhea"></div>Rhea</li>
+            <li><div class="moon titan"></div>Titan</li>
+        </ul>
+    </div>
+    <div class="description" name="uranus">
+        <h4>Uranus</h4>
+        <ul>
+            <li><div class="moon titania"></div>Titania</li>
+            <li><div class="moon oberon"></div>Oberon</li>
+        </ul>
+    </div>
+    <div class="description" name="neptune">
+        <h4>Neptune</h4>
+        <ul>
+            <li><div class="moon triton"></div>Triton</li>
+        </ul>
+    </div>
+    <div id="solarsystem">
+        <div id="sol" class="star"></div>
+        <div id="mercuryorbit" class="orbit">
+            <div id="mercury" class="planet">
+                <div class="anchor"></div>
+                <div class="fake orbit"></div>
+            </div>
+        </div>
+        <div id="venusorbit" class="orbit">
+            <div id="venus" class="planet">
+                <div class="anchor"></div>
+                <div class="fake orbit"></div>
+            </div>
+        </div>
+        <div id="earthorbit" class="orbit">
+            <div id="earth" class="planet">
+                <div class="anchor"></div>
+                <div class="fake orbit"></div>
+                <div id="lunaorbit" class="orbit">
+                    <div id="luna" class="moon"></div>
+                </div>
+            </div>
+        </div>
+        <div id="marsorbit" class="orbit">
+            <div id="mars" class="planet">
+                <div class="anchor"></div>
+                <div class="fake orbit"></div>
+            </div>
+        </div>
+        <div id="jupiterorbit" class="orbit">
+            <div id="jupiter" class="planet">
+                <div class="anchor"></div>
+                <div id="ioorbit" class="orbit">
+                    <div id="io" class="moon"></div>
+                </div>
+                <div id="europaorbit" class="orbit">
+                    <div id="europa" class="moon"></div>
+                </div>
+                <div id="ganymedeorbit" class="orbit">
+                    <div id="ganymede" class="moon"></div>
+                </div>
+                <div id="callistoorbit" class="orbit">
+                    <div id="callisto" class="moon"></div>
+                </div>
+            </div>
+        </div>
+        <div id="saturnorbit" class="orbit">
+            <div id="saturn" class="planet">
+                <div class="anchor"></div>
+                <div id="saturnrings" class="orbit">
+                </div>
+                <div id="titanorbit" class="orbit">
+                    <div id="titan" class="moon"></div>
+                </div>
+                <div id="rheaorbit" class="orbit">
+                    <div id="rhea" class="moon"></div>
+                </div>
+            </div>
+        </div>
+        <div id="uranusorbit" class="orbit">
+            <div id="uranus" class="planet">
+                <div class="anchor"></div>
+                <div id="titaniaorbit" class="orbit">
+                    <div id="titania" class="moon"></div>
+                </div>
+                <div id="oberonorbit" class="orbit">
+                    <div id="oberon" class="moon"></div>
+                </div>
+            </div>
+        </div>
+        <div id="neptuneorbit" class="orbit">
+            <div id="neptune" class="planet">
+                <div class="anchor"></div>
+                <div id="tritonorbit" class="orbit">
+                    <div id="triton" class="moon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="credits">Simon Herteby 2015</div>
+</body>
+</html>

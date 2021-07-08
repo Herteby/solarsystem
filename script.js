@@ -24,10 +24,6 @@ $(function(){
             labels = true;
         }
     });
-    $('#moons').click(function(){
-        $(this).toggleClass('on');
-        $('body').toggleClass('slowmoons');
-    });
     $('#orbits').click(function(){
         $(this).toggleClass('on');
         $('body').toggleClass('noorbits');
